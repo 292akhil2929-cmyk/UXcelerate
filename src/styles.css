@@ -43,6 +43,41 @@ button:active, a:active { transform: translateY(1px); }
 .skip-link:focus { transform: none; }
 
 .app-shell { min-height: 100dvh; background: var(--void); }
+.command-console { position: relative; z-index: 3; min-height: 100dvh; background: var(--void); box-shadow: 0 -30px 90px rgba(0,0,0,.72); }
+
+.incident-replay { position: relative; z-index: 1; height: 420svh; background: #05080a; }
+.replay-stage { position: sticky; top: 0; width: 100%; height: 100svh; min-height: 640px; overflow: hidden; isolation: isolate; color: #f2f4ef; background: #071014; }
+.replay-frame { position: absolute; z-index: -4; inset: -3%; width: 106%; height: 106%; max-width: none; object-fit: cover; filter: brightness(1.18) contrast(1.06) saturate(.92); will-change: transform; }
+.replay-vignette { position: absolute; z-index: -3; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(3,6,8,.94) 0%, rgba(3,6,8,.66) 27%, rgba(3,6,8,.1) 62%, rgba(3,6,8,.5) 100%), linear-gradient(0deg, rgba(3,6,8,.74) 0%, transparent 38%, rgba(3,6,8,.34) 100%); }
+.replay-grain { position: absolute; z-index: -2; inset: -50%; pointer-events: none; opacity: .12; background-image: repeating-radial-gradient(circle at 17% 31%, transparent 0, rgba(255,255,255,.18) .55px, transparent 1.1px, transparent 4px); background-size: 7px 9px; transform: rotate(3deg); mix-blend-mode: soft-light; }
+.replay-masthead { position: absolute; z-index: 4; top: 0; left: 0; right: 0; min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 0 clamp(24px, 4vw, 68px); border-bottom: 1px solid rgba(239,244,240,.2); }
+.replay-brand { display: inline-flex; align-items: center; gap: 14px; color: var(--accent); text-decoration: none; font-weight: 780; letter-spacing: .15em; }
+.replay-masthead > div { display: flex; align-items: center; gap: 9px; color: rgba(235,240,236,.74); font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+.replay-masthead > div svg { width: 14px; height: 14px; color: var(--accent); filter: drop-shadow(0 0 8px rgba(255,107,26,.8)); }
+.replay-copy { position: absolute; left: clamp(24px, 7vw, 112px); bottom: clamp(88px, 13vh, 150px); width: min(680px, 66vw); }
+.replay-beat { position: absolute; left: 0; bottom: 0; width: 100%; pointer-events: none; will-change: transform, opacity; }
+.replay-beat > span { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 18px; color: var(--accent); font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .14em; }
+.replay-beat > span::before { content: ""; width: 38px; height: 1px; background: currentColor; box-shadow: 0 0 12px currentColor; }
+.replay-beat h1 { max-width: 9.5ch; margin: 0; font-size: clamp(50px, 7.2vw, 116px); font-weight: 720; line-height: .83; letter-spacing: -.065em; text-transform: uppercase; text-wrap: balance; }
+.replay-beat p { max-width: 520px; margin: 24px 0 0; color: rgba(234,240,237,.74); font-size: clamp(14px, 1.2vw, 18px); line-height: 1.45; }
+.replay-enter, .replay-static-enter { width: max-content; min-height: 46px; display: inline-flex; align-items: center; gap: 12px; margin-top: 28px; padding: 0 17px; border: 1px solid rgba(255,255,255,.7); color: #fff; background: rgba(5,9,11,.7); text-decoration: none; font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; pointer-events: auto; backdrop-filter: blur(12px); transition: color .25s var(--ease-out), background .25s var(--ease-out), border-color .25s var(--ease-out); }
+.replay-enter:hover, .replay-static-enter:hover { border-color: var(--accent); color: #121212; background: var(--accent); }
+.replay-enter svg, .replay-static-enter svg { width: 15px; height: 15px; }
+.replay-readout { position: absolute; top: 50%; right: clamp(22px, 4vw, 68px); width: 70px; height: min(48vh, 390px); display: grid; grid-template-rows: auto auto 1fr auto auto; gap: 8px; color: rgba(234,240,237,.62); font-family: var(--mono); font-size: 8px; letter-spacing: .08em; transform: translateY(-43%); }
+.replay-readout strong { color: #fff; font-size: 10px; }
+.replay-readout i { position: relative; width: 1px; height: 100%; margin: 5px 0 5px 3px; background: rgba(255,255,255,.24); }
+.replay-readout i b { position: absolute; inset: 0; display: block; background: var(--accent); transform-origin: top; box-shadow: 0 0 10px rgba(255,107,26,.75); }
+.replay-readout small { font-size: 8px; }
+.replay-lock { position: absolute; right: clamp(24px, 4vw, 68px); bottom: 32px; display: flex; align-items: center; gap: 8px; color: rgba(236,241,238,.56); font-family: var(--mono); font-size: 8px; letter-spacing: .08em; }
+.replay-lock svg { width: 16px; height: 16px; color: var(--accent); }
+.replay-static-enter { display: none; }
+
+.incident-replay.is-static { height: 100svh; }
+.incident-replay.is-static .replay-frame { inset: 0; width: 100%; height: 100%; }
+.incident-replay.is-static .replay-readout { display: none; }
+.incident-replay.is-static .replay-beat { display: none; }
+.incident-replay.is-static .replay-beat:first-child { display: block; opacity: 1 !important; transform: none !important; }
+.incident-replay.is-static .replay-static-enter { position: absolute; z-index: 6; left: clamp(24px, 7vw, 112px); bottom: 44px; display: inline-flex; }
 
 .topbar {
   position: relative;
@@ -371,6 +406,14 @@ button:active, a:active { transform: translateY(1px); }
   .fleet-list > button { grid-template-columns: 40px 1fr auto; }
   .fleet-list .status-word { display: none; }
   .toast { left: 12px; right: 12px; bottom: 76px; transform: none; justify-content: center; }
+  .replay-stage { min-height: 560px; }
+  .replay-masthead { min-height: 62px; padding-inline: 18px; }
+  .replay-masthead > div { max-width: 150px; justify-content: flex-end; text-align: right; font-size: 8px; }
+  .replay-copy { left: 20px; right: 20px; bottom: 150px; width: auto; }
+  .replay-beat h1 { max-width: 8ch; font-size: clamp(46px, 15vw, 72px); }
+  .replay-beat p { max-width: 34ch; margin-top: 18px; font-size: 13px; }
+  .replay-lock { right: 18px; bottom: 18px; }
+  .incident-replay.is-static .replay-static-enter { left: 20px; bottom: 76px; }
 }
 
 @media (max-width: 420px) {

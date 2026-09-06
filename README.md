@@ -20,6 +20,7 @@ The visual language takes its cue from a flight-data recorder: accountable, comp
 
 ## Try the prototype
 
+- Scrub the seven-second incident reconstruction by scrolling: terrain, signal, hazard, and decision are tied to 49 optimized frames rather than autoplay video.
 - Run the aftershock drill to expand the collapse zone and recompute the route.
 - Queue dispatch while Scout-02 has an intermittent link.
 - Switch to low-bandwidth mode to remove the heavy map texture while preserving critical geometry and controls.
@@ -33,6 +34,7 @@ Keyboard shortcuts: `A` toggles the aftershock drill, `F` opens the full fleet, 
 - Semantic headings, landmarks, labels, fieldsets, lists, and live status messaging.
 - Visible keyboard focus and 44px-class primary touch targets.
 - Reduced-motion support for every non-essential transition.
+- Coarse-pointer, mobile, and reduced-motion visitors receive a single cinematic poster instead of the full frame sequence.
 - Color-independent status labels and route symbols.
 - A dedicated mobile field view and persistent mobile command dock.
 - Low-bandwidth map mode with all decision controls retained.
@@ -43,6 +45,7 @@ Keyboard shortcuts: `A` toggles the aftershock drill, `F` opens the full fleet, 
 - React 19 and TypeScript
 - Vite
 - Motion for causal state transitions and SVG route drawing
+- A Google Flow-generated, illustrative incident film converted to a 1.56 MB WebP sequence for deterministic scroll control
 - Phosphor icon system
 - Self-hosted Archivo and JetBrains Mono variable fonts
 - Static Vercel deployment

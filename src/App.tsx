@@ -5,6 +5,7 @@ import { initialEvents } from "./data";
 import { DecisionRail } from "./components/DecisionRail";
 import { EventRecorder } from "./components/EventRecorder";
 import { FleetSheet } from "./components/FleetSheet";
+import { IncidentReplay } from "./components/IncidentReplay";
 import { TacticalMap } from "./components/TacticalMap";
 import { TopBar } from "./components/TopBar";
 
@@ -57,35 +58,38 @@ function App() {
   };
 
   return (
-    <div className="app-shell" id="command">
+    <div className="app-shell">
       <a className="skip-link" href="#map-title">Skip to tactical map</a>
-      <TopBar
-        lowBandwidth={lowBandwidth}
-        onToggleBandwidth={() => { setLowBandwidth((current) => !current); setToast(lowBandwidth ? "Full map detail restored" : "Low-bandwidth map enabled"); }}
-        onOpenActivity={() => setActivityOpen((current) => !current)}
-      />
+      <IncidentReplay />
+      <div className="command-console" id="command">
+        <TopBar
+          lowBandwidth={lowBandwidth}
+          onToggleBandwidth={() => { setLowBandwidth((current) => !current); setToast(lowBandwidth ? "Full map detail restored" : "Low-bandwidth map enabled"); }}
+          onOpenActivity={() => setActivityOpen((current) => !current)}
+        />
 
-      <main className="command-layout">
-        <div className="map-stack">
-          {lowBandwidth && <div className="bandwidth-banner"><WifiSlash weight="fill" /><span><strong>Low-bandwidth mode</strong> Map texture paused. Commands remain available.</span></div>}
-          <TacticalMap
+        <main className="command-layout">
+          <div className="map-stack">
+            {lowBandwidth && <div className="bandwidth-banner"><WifiSlash weight="fill" /><span><strong>Low-bandwidth mode</strong> Map texture paused. Commands remain available.</span></div>}
+            <TacticalMap
+              aftershock={aftershock}
+              lowBandwidth={lowBandwidth}
+              selectedRobot={selectedRobot}
+              onSelectRobot={setSelectedRobot}
+            />
+            <EventRecorder events={events} expanded={activityOpen} onToggle={() => setActivityOpen((current) => !current)} />
+          </div>
+
+          <DecisionRail
             aftershock={aftershock}
-            lowBandwidth={lowBandwidth}
+            dispatched={dispatched}
             selectedRobot={selectedRobot}
             onSelectRobot={setSelectedRobot}
+            onAftershock={toggleAftershock}
+            onDispatch={dispatch}
           />
-          <EventRecorder events={events} expanded={activityOpen} onToggle={() => setActivityOpen((current) => !current)} />
-        </div>
-
-        <DecisionRail
-          aftershock={aftershock}
-          dispatched={dispatched}
-          selectedRobot={selectedRobot}
-          onSelectRobot={setSelectedRobot}
-          onAftershock={toggleAftershock}
-          onDispatch={dispatch}
-        />
-      </main>
+        </main>
+      </div>
 
       <nav className="mobile-dock" aria-label="Mobile command navigation">
         <a href="#command"><WarningDiamond /><span>Incident</span></a>
