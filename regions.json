@@ -1,0 +1,22 @@
+{
+  "regions": [
+    { "id": "top-command-bar", "kind": "chrome", "grid": "A0:J0", "note": "thin global incident command strip" },
+    { "id": "brand-lockup", "kind": "text", "grid": "A0:B0", "note": "RIFTLINE and simulation identity" },
+    { "id": "top-status", "kind": "text", "grid": "C0:G0", "note": "sector time data age and link state" },
+    { "id": "top-navigation", "kind": "control", "grid": "H0:J0", "note": "dashboard map robots logs settings" },
+    { "id": "tactical-map", "kind": "plate", "grid": "A1:G6", "note": "top-down collapsed urban sector map without UI labels or controls" },
+    { "id": "map-layers", "kind": "control", "grid": "A1:B3", "note": "map layer checkbox panel" },
+    { "id": "sector-overview", "kind": "control", "grid": "A4:B5", "note": "north west east south sector overview and map tools" },
+    { "id": "sector-heading", "kind": "text", "grid": "B0:C1", "note": "North Sector map heading" },
+    { "id": "route-geometry", "kind": "control", "grid": "C1:F6", "note": "responsive data visualization of route, hazard, robot and survivor geometry", "codeDrawn": true },
+    { "id": "right-panel", "kind": "chrome", "grid": "H0:J9", "note": "continuous decision column", "container": true },
+    { "id": "survivor-summary", "kind": "text", "grid": "H0:J1", "note": "urgent survivor identity confidence and data age" },
+    { "id": "robot-candidates", "kind": "text", "grid": "H2:J5", "note": "three ranked rescue robot candidates and route-fit facts" },
+    { "id": "command-plan", "kind": "text", "grid": "H6:J7", "note": "four leg command plan with distances" },
+    { "id": "command-actions", "kind": "control", "grid": "H7:J7", "note": "aftershock review and dispatch controls" },
+    { "id": "command-receipt", "kind": "text", "grid": "H8:J9", "note": "queued delivered acknowledged receipt stages" },
+    { "id": "event-recorder", "kind": "chrome", "grid": "A7:G9", "note": "black box event recorder timeline surface" },
+    { "id": "timeline-heading", "kind": "text", "grid": "A7:C7", "note": "event recorder heading and current time" },
+    { "id": "timeline-data", "kind": "control", "grid": "A8:G9", "note": "four synchronized event tracks and playback controls" }
+  ]
+}

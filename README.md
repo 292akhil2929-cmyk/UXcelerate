@@ -1,27 +1,64 @@
-# UXcelerate!
+# RIFTLINE
 
-Welcome! Follow the steps below to participate and submit your entry.
+RIFTLINE is an interactive command interface for coordinating rescue robots after an earthquake. It treats incomplete maps, stale telemetry, and unreliable links as operational facts instead of hiding them.
 
-## How to Participate
+![RIFTLINE desktop command interface](docs/riftline-command.jpg)
 
-1. **Fork this repository**
-   Click the **Fork** button at the top right of this repo to create your own copy under your GitHub account.
+## The design response
 
-2. **Build your submission**
-   Work entirely within your forked repository. Design and build your UI/UX submission according to the challenge brief. Commit your work as you go so we can see your process.
+The product is built around one urgent loop:
 
-3. **Deploy your project (optional)**
-   If you'd like, deploy your project (e.g. Vercel, Netlify, GitHub Pages) and add the live link to your repo's README or description. This isn't mandatory, but it's a great way to showcase your work.
+1. Detect a survivor signal and inspect its confidence and age.
+2. See blocked paths, hazards, and unverified map areas together.
+3. Compare robots by route fit, link quality, battery, and ETA.
+4. Review the route and queue a command without pretending it was delivered.
+5. Verify the command lifecycle in the event recorder.
 
-4. **Submit your forked repo**
-   Once you're done, copy the link to your forked repository and submit it via the official submission form:
+The visual language takes its cue from a flight-data recorder: accountable, compact, and explicit about time. International orange marks the current decision. Red and green remain semantic and are always paired with words and shapes.
 
-   👉 **[[UXcelerate]](https://docs.google.com/forms/d/e/1FAIpQLSdF-HbTXtL_Qk098nPxq8cwys_6ANyRC2fb8I2SQCcYy4XXuQ/viewform?usp=publish-editor)**
+## Try the prototype
 
-## Notes
+- Run the aftershock drill to expand the collapse zone and recompute the route.
+- Queue dispatch while Scout-02 has an intermittent link.
+- Switch to low-bandwidth mode to remove the heavy map texture while preserving critical geometry and controls.
+- Select a robot on the map or in the ranked candidate list.
+- Open the black-box timeline to inspect the causal event history.
 
-- Make sure your forked repo is public so we can review it.
-- Double-check your form submission includes the correct repo link before the deadline.
-- Reach out to the IEI team if you run into any issues.
+Keyboard shortcuts: `A` toggles the aftershock drill, `F` opens the full fleet, and `L` opens the event log.
 
-Good luck, and have fun building! 🎨
+## Accessibility and resilience
+
+- Semantic headings, landmarks, labels, fieldsets, lists, and live status messaging.
+- Visible keyboard focus and 44px-class primary touch targets.
+- Reduced-motion support for every non-essential transition.
+- Color-independent status labels and route symbols.
+- A dedicated mobile field view and persistent mobile command dock.
+- Low-bandwidth map mode with all decision controls retained.
+- No backend dependency. All data is visibly simulated for this competition prototype.
+
+## Technology
+
+- React 19 and TypeScript
+- Vite
+- Motion for causal state transitions and SVG route drawing
+- Phosphor icon system
+- Self-hosted Archivo and JetBrains Mono variable fonts
+- Static Vercel deployment
+
+## Local development
+
+```bash
+npm install
+npm run dev
+```
+
+Production verification:
+
+```bash
+npm test
+npm run build
+```
+
+## Product boundary
+
+RIFTLINE is a UXcelerate competition prototype using simulated incident data. It has not been validated for real emergency deployment and does not claim institutional approval or measured rescue outcomes.
