@@ -2,6 +2,8 @@
 
 RIFTLINE is an interactive command interface for coordinating rescue robots after an earthquake. It treats incomplete maps, stale telemetry, and unreliable links as operational facts instead of hiding them.
 
+**Live prototype:** https://riftline-rescue-command.vercel.app
+
 ![RIFTLINE desktop command interface](docs/riftline-command.jpg)
 
 ## The design response
