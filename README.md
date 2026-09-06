@@ -20,7 +20,7 @@ The visual language takes its cue from a flight-data recorder: accountable, comp
 
 ## Try the prototype
 
-- Scrub the seven-second incident reconstruction by scrolling: terrain, signal, hazard, and decision are tied to 49 optimized frames rather than autoplay video.
+- Scrub the five-second illustrative incident reconstruction by scrolling. Its 84 decoded frames render through one canvas rather than an autoplay video or repeated image swaps.
 - Run the aftershock drill to expand the collapse zone and recompute the route.
 - Queue dispatch while Scout-02 has an intermittent link.
 - Switch to low-bandwidth mode to remove the heavy map texture while preserving critical geometry and controls.
@@ -45,7 +45,7 @@ Keyboard shortcuts: `A` toggles the aftershock drill, `F` opens the full fleet, 
 - React 19 and TypeScript
 - Vite
 - Motion for causal state transitions and SVG route drawing
-- A Google Flow-generated, illustrative incident film converted to a 1.56 MB WebP sequence for deterministic scroll control
+- A clearly disclosed illustrative incident film converted to a 2.51 MB WebP sequence for deterministic scroll control
 - Phosphor icon system
 - Self-hosted Archivo and JetBrains Mono variable fonts
 - Static Vercel deployment
